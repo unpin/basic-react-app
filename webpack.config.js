@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,6 +17,7 @@ export default {
         new HtmlWebpackPlugin({
             template: './src/index.html',
         }),
+        new MiniCssExtractPlugin(),
     ],
     module: {
         rules: [
@@ -28,6 +30,21 @@ export default {
                         presets: ['@babel/preset-env', '@babel/preset-react'],
                     },
                 },
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: ['postcss-nesting'],
+                            },
+                        },
+                    },
+                ],
             },
         ],
     },
