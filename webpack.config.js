@@ -13,6 +13,15 @@ export default {
         path: path.resolve(dirname, 'dist'),
         clean: true,
     },
+    devServer: {
+        static: {
+            directory: path.join(dirname, 'public'),
+        },
+        historyApiFallback: true,
+        compress: true,
+        port: 8080,
+        open: true,
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
