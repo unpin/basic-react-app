@@ -40,7 +40,7 @@ export default {
                         loader: 'postcss-loader',
                         options: {
                             postcssOptions: {
-                                plugins: [],
+                                plugins: ['postcss-nesting'],
                             },
                         },
                     },
