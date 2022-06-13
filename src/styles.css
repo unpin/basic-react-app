@@ -73,7 +73,7 @@ select {
     }
 }
 
-/*  */
+/* Adaptive background for transparent PNGs */
 
 img[src$='.png'] {
     background-color: lightgray;
