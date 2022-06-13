@@ -72,3 +72,15 @@ select {
         scroll-behavior: auto !important;
     }
 }
+
+/*  */
+
+img[src$='.png'] {
+    background-color: lightgray;
+}
+
+@media (prefers-color-scheme: dark) {
+    img[src$='.png'] {
+        background-color: black;
+    }
+}
