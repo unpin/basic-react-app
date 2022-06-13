@@ -72,3 +72,15 @@ select {
         scroll-behavior: auto !important;
     }
 }
+
+/* Adaptive background for transparent PNGs */
+
+img[src$='.png'] {
+    background-color: lightgray;
+}
+
+@media (prefers-color-scheme: dark) {
+    img[src$='.png'] {
+        background-color: black;
+    }
+}
